@@ -1,0 +1,20 @@
+<p>
+<input class="new-task"  [value]="taskValue" placeholder="What needs to be done?" autofocus #taskInput>
+<button class="add button" (click)="addTask(taskInput.value)">Add</button>
+</p>
+
+<div>
+  <ul class="task-list">
+    <li *ngFor="let item of items; let i = index;">
+      <div class="view">
+        <label>{{item.text}}</label>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <p>
+  <button class="btn btn-primary add" (click)="saveList()">Save Task List</button>
+  </p>
+</div>
