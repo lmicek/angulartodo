@@ -1,20 +1,23 @@
 <p>
-<input class="new-task" placeholder="What needs to be done?" autofocus #taskInput>
-<button class="add button" (click)="addTask(taskInput)">Add</button>
-</p>
+<div class="container">
+  <input class="new-task" placeholder="What needs to be done?" autofocus #taskInput (keydown)="keyDownFunction($event,taskInput)">
+  <button class="add button" (click)="addTask(taskInput)">Add</button>
 
-<div>
-  <ul class="task-list">
-    <li *ngFor="let item of items; let i = index;" (click)="deleteTask(item)">
-      <div class="view">
-        <label>{{item.order}} {{item.text}} <i class="fa fa-times fa-2" aria-hidden="true"></i></label>
-      </div>
-    </li>
-  </ul>
-</div>
+  <div>
+    <ul class="task-list">
+      <li *ngFor="let item of items; let i = index;">
+        <div class="view container" id="{{item.order}}">
+          <div class="itemAlignment"><i (click)="moveItemUp(item)" class="fa fa-chevron-up fa-1" aria-hidden="true"></i><br><i (click)="moveItemDown(item)" class="fa fa-chevron-down fa-1" aria-hidden="true"></i></div>
+          <div class="itemAlignment"><label>{{item.order}} {{item.text}} <i (click)="deleteTask(item)" class="fa fa-times fa-2" aria-hidden="true"></i></label></div>
+        </div>
+      </li>
+    </ul>
+  </div>
 
-<div>
-  <p>
-  <button class="btn btn-primary add" (click)="saveList()">Save List</button>
-  </p>
+  <div>
+    <p>
+    <button class="btn btn-primary add" (click)="saveList()">Save List</button>
+    </p>
+  </div>
+
 </div>

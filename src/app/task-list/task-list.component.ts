@@ -30,6 +30,24 @@ export class TaskListComponent implements OnInit {
     if (index !== -1) {
         this.items.splice(index, 1);
     }
+    this.updateOrder();
+  }
+
+  keyDownFunction(event,taskInput) {
+    if(event.keyCode == 13) {
+      this.addTask(taskInput);
+     }
+  }
+
+  moveItemUp(changeItem: taskListItems) {
+    //todo - implement functionality
+  }
+
+  moveItemDown(changeItem: taskListItems) {
+    //todo - implement functionality
+  }
+
+  updateOrder() {
     this.orderNumber = 1;
     for(var i=0;i<this.items.length;i++) {
       this.items[i].order = this.orderNumber++;
