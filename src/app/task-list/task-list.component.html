@@ -7,7 +7,7 @@
     <ul class="task-list">
       <li *ngFor="let item of items; let i = index;">
         <div class="view container" id="{{item.order}}">
-          <div class="itemAlignment"><i (click)="moveItemUp(item)" class="fa fa-chevron-up fa-1" aria-hidden="true"></i><br><i (click)="moveItemDown(item)" class="fa fa-chevron-down fa-1" aria-hidden="true"></i></div>
+          <div class="itemAlignment"><i (click)="moveItem(item,'up')" class="fa fa-chevron-up fa-1" aria-hidden="true"></i><br><i (click)="moveItem(item,'down')" class="fa fa-chevron-down fa-1" aria-hidden="true"></i></div>
           <div class="itemAlignment"><label>{{item.order}} {{item.text}} <i (click)="deleteTask(item)" class="fa fa-times fa-2" aria-hidden="true"></i></label></div>
         </div>
       </li>

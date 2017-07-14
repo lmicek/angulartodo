@@ -25,6 +25,14 @@ export class TaskListComponent implements OnInit {
     newItem.value = null;    
   }
 
+  addTaskItem(newItem: taskListItems) {
+    this.items.push({
+      text: newItem.text,
+      order: newItem.order++
+    });
+    this.updateOrder(); 
+  }
+
   deleteTask(deleteItem: taskListItems) {
     let index: number = this.items.indexOf(deleteItem);
     if (index !== -1) {
@@ -39,12 +47,18 @@ export class TaskListComponent implements OnInit {
      }
   }
 
-  moveItemUp(changeItem: taskListItems) {
-    //todo - implement functionality
-  }
-
-  moveItemDown(changeItem: taskListItems) {
-    //todo - implement functionality
+  moveItem(changeItem: taskListItems, direction: string) {
+    let storeItem: taskListItems = changeItem;
+    let index: number = this.items.indexOf(storeItem);
+    this.deleteTask(changeItem);
+    if(direction == 'up') {
+      index--;
+    }
+    if(direction == 'down') {
+      index++;
+    }
+    this.items.splice(index, 0, storeItem);
+    this.updateOrder();
   }
 
   updateOrder() {
