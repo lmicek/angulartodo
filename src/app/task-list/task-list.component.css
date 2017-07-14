@@ -91,6 +91,10 @@ label {
   float:left;
 }
 
-.task-list li:first-child .fa-chevron-up, .task-list li:last-child .fa-chevron-down {
+.task-list li:first-child .fa-chevron-up, .task-list li:last-child .fa-chevron-down, .disabled {
   display:none;
+}
+
+.active {
+  display: block;
 }

@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class TaskListComponent implements OnInit {
   items: taskListItems[];
   orderNumber: number = 1;
+  isActive: boolean = false;
+  isDisabled: boolean = true;
   
   constructor() { 
     this.items = [];
@@ -22,7 +24,8 @@ export class TaskListComponent implements OnInit {
       text: newItem.value,
       order: this.orderNumber++
     });
-    newItem.value = null;    
+    newItem.value = null;   
+    this.updateOrder(); 
   }
 
   addTaskItem(newItem: taskListItems) {
@@ -62,10 +65,21 @@ export class TaskListComponent implements OnInit {
   }
 
   updateOrder() {
+    if(typeof this.items !== 'undefined' && this.items.length > 0 && this.items!==null) {
+      this.isActive = true;
+      this.isDisabled = false;
+    } else {
+      this.isDisabled = true;
+      this.isActive = false;
+    }
     this.orderNumber = 1;
     for(var i=0;i<this.items.length;i++) {
       this.items[i].order = this.orderNumber++;
     }
+  }
+
+  saveList(){
+    //make ajax call to save data
   }
 
 } //end of TaskListComponent

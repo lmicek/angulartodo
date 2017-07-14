@@ -16,7 +16,7 @@
 
   <div>
     <p>
-    <button class="btn btn-primary add" (click)="saveList()">Save List</button>
+    <button [ngClass]="{'active': isActive, 'disabled': isDisabled}" class="btn btn-primary add savebtn" (click)="saveList()">Save List</button>
     </p>
   </div>
 
