@@ -1,13 +1,13 @@
 <p>
-<input class="new-task"  [value]="taskValue" placeholder="What needs to be done?" autofocus #taskInput>
-<button class="add button" (click)="addTask(taskInput.value)">Add</button>
+<input class="new-task" placeholder="What needs to be done?" autofocus #taskInput>
+<button class="add button" (click)="addTask(taskInput)">Add</button>
 </p>
 
 <div>
   <ul class="task-list">
-    <li *ngFor="let item of items; let i = index;">
+    <li *ngFor="let item of items; let i = index;" (click)="deleteTask(item)">
       <div class="view">
-        <label>{{item.text}}</label>
+        <label>{{item.order}} {{item.text}} <i class="fa fa-times fa-2" aria-hidden="true"></i></label>
       </div>
     </li>
   </ul>
@@ -15,6 +15,6 @@
 
 <div>
   <p>
-  <button class="btn btn-primary add" (click)="saveList()">Save Task List</button>
+  <button class="btn btn-primary add" (click)="saveList()">Save List</button>
   </p>
 </div>
