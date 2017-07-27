@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Injectable} from "@angular/core";
+import {Http, Response, Headers, RequestOptions} from "@angular/http";
+import {Observable} from "rxjs/Rx";
+import 'rxjs/Rx';
 
 @Component({
   selector: 'app-task-list',
@@ -6,13 +10,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task-list.component.css']
 })
 
+@Injectable()
 export class TaskListComponent implements OnInit {
   items: taskListItems[];
   orderNumber: number = 1;
   isActive: boolean = false;
   isDisabled: boolean = true;
   
-  constructor() { 
+  constructor(private http: Http) { 
     this.items = [];
   }
 
@@ -79,7 +84,12 @@ export class TaskListComponent implements OnInit {
   }
 
   saveList(){
-    //make ajax call to save data
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    this.http.post('http://localhost:8080/api/tasks', JSON.stringify(this.items), {headers : headers})
+      .subscribe(res => {
+         console.log('inside postmehtod of sub.function', res.json());//only objects
+      })
   }
 
 } //end of TaskListComponent

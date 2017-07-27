@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AlertModule } from 'bootstrap';
 import { TaskListComponent } from './task-list/task-list.component';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { TaskListComponent } from './task-list/task-list.component';
     TaskListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent,TaskListComponent]
