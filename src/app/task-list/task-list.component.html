@@ -1,23 +1,23 @@
 <p>
-<div class="container">
-  <input class="new-task" placeholder="What needs to be done?" autofocus #taskInput (keydown)="keyDownFunction($event,taskInput)">
-  <button class="add button" (click)="addTask(taskInput)">Add</button>
-
-  <div>
-    <ul class="task-list">
-      <li *ngFor="let item of items; let i = index;">
-        <div class="view container" id="{{item.order}}">
-          <div class="itemAlignment"><i (click)="moveItem(item,'up')" class="fa fa-chevron-up fa-1" aria-hidden="true"></i><br><i (click)="moveItem(item,'down')" class="fa fa-chevron-down fa-1" aria-hidden="true"></i></div>
-          <div class="itemAlignment"><label>{{item.order}} {{item.text}} <i (click)="deleteTask(item)" class="fa fa-times fa-2" aria-hidden="true"></i></label></div>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-  <div>
-    <p>
-    <button [ngClass]="{'active': isActive, 'disabled': isDisabled}" class="btn btn-primary add savebtn" (click)="saveList()">Save List</button>
-    </p>
-  </div>
-
-</div>
+    <div class="container">
+      <input class="new-task" placeholder="What needs to be done?" autofocus #taskInput (keydown)="keyDownFunction($event,taskInput)">
+      <button class="add button" (click)="addTask(taskInput)">Add</button>
+    
+      <div>
+        <ul class="task-list">
+          <li *ngFor="let item of items; let i = index;">
+            <div class="view container" id="{{item.order}}">
+              <div class="itemAlignment"><i (click)="moveItem(item,'up')" class="fa fa-chevron-up fa-1" aria-hidden="true"></i><br><i (click)="moveItem(item,'down')" class="fa fa-chevron-down fa-1" aria-hidden="true"></i></div>
+              <div class="itemAlignment"><label>{{item.order}} {{item.text}} <i (click)="deleteTask(item)" class="fa fa-times fa-2" aria-hidden="true"></i></label></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    
+      <div>
+        <p>
+        <button [ngClass]="{'active': isActive, 'disabled': isDisabled}" class="btn btn-primary add savebtn" (click)="saveList()">Save List</button>
+        </p>
+      </div>
+    
+    </div>

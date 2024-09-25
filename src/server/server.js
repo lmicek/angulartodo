@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/mytaskdata');
-var Task = require('../../app/models/task');
+var Task = require('../app/models/tasks.js');
 
 
 // configure app to use bodyParser()
@@ -60,5 +60,3 @@ app.use('/api', router);
 // =============================================================================
 app.listen(port);
 console.log('Magic happens on port ' + port);
-
-

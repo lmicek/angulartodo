@@ -1,100 +1,100 @@
 .button {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: none;
-  font-size: 100%;
-  vertical-align: baseline;
-  font-family: inherit;
-  font-weight: inherit;
-  color: inherit;
-  -webkit-appearance: none;
-  appearance: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-}
-
-.add {
-  cursor: pointer;
-  margin: 3px;
-  padding: 3px 7px;
-  border: 1px solid transparent;
-  border-radius: 3px;
-}
-
-.add:hover {
-  border-color: rgba(175, 47, 47, 0.1);
-}
-
-.new-task,
-.edit {
-  position: relative;
-  margin: 0;
-  width: 90%;
-  font-size: 24px;
-  font-family: inherit;
-  font-weight: inherit;
-  line-height: 1.4em;
-  border: 0;
-  outline: none;
-  color: inherit;
-  padding: 6px;
-  border: 1px solid #999;
-  box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-}
-
-.new-task {
-  padding: 16px 16px 16px 60px;
-  border: none;
-  background: rgba(0, 0, 0, 0.003);
-  box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
-}
-
-.main {
-  position: relative;
-  z-index: 2;
-  border-top: 1px solid #e6e6e6;
-}
-
-.task-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.task-list li {
-  position: relative;
-  font-size: 24px;
-  border-bottom: 1px solid #ededed;
-}
-
-.task-list li:last-child {
-  border-bottom: none;
-}
-
-label {
-  white-space: pre;
-  word-break: break-word;
-  padding: 15px 60px 15px 15px;
-  margin-left: 45px;
-  display: block;
-  line-height: 1.2;
-  transition: color 0.4s;
-}
-
-.itemAlignment {
-  float:left;
-}
-
-.task-list li:first-child .fa-chevron-up, .task-list li:last-child .fa-chevron-down, .disabled {
-  display:none;
-}
-
-.active {
-  display: block;
-}
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-size: 100%;
+    vertical-align: baseline;
+    font-family: inherit;
+    font-weight: inherit;
+    color: inherit;
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+  }
+  
+  .add {
+    cursor: pointer;
+    margin: 3px;
+    padding: 3px 7px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+  }
+  
+  .add:hover {
+    border-color: rgba(175, 47, 47, 0.1);
+  }
+  
+  .new-task,
+  .edit {
+    position: relative;
+    margin: 0;
+    width: 90%;
+    font-size: 24px;
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: 1.4em;
+    border: 0;
+    outline: none;
+    color: inherit;
+    padding: 6px;
+    border: 1px solid #999;
+    box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+  }
+  
+  .new-task {
+    padding: 16px 16px 16px 60px;
+    border: none;
+    background: rgba(0, 0, 0, 0.003);
+    box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+  }
+  
+  .main {
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid #e6e6e6;
+  }
+  
+  .task-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .task-list li {
+    position: relative;
+    font-size: 24px;
+    border-bottom: 1px solid #ededed;
+  }
+  
+  .task-list li:last-child {
+    border-bottom: none;
+  }
+  
+  label {
+    white-space: pre;
+    word-break: break-word;
+    padding: 15px 60px 15px 15px;
+    margin-left: 45px;
+    display: block;
+    line-height: 1.2;
+    transition: color 0.4s;
+  }
+  
+  .itemAlignment {
+    float:left;
+  }
+  
+  .task-list li:first-child .fa-chevron-up, .task-list li:last-child .fa-chevron-down, .disabled {
+    display:none;
+  }
+  
+  .active {
+    display: block;
+  }
