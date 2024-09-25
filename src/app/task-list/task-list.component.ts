@@ -1,24 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import {Injectable} from "@angular/core";
-import {Http, Response, Headers, RequestOptions} from "@angular/http";
-import {Observable} from "rxjs/Rx";
-import 'rxjs/Rx';
+import { Component } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-task-list',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './task-list.component.html',
-  styleUrls: ['./task-list.component.css']
+  styleUrl: './task-list.component.css'
 })
-
-@Injectable()
-export class TaskListComponent implements OnInit {
+export class TaskListComponent {
   items: taskListItems[];
   orderNumber: number = 1;
   isActive: boolean = false;
   isDisabled: boolean = true;
-  
-  constructor(private http: Http) { 
-    this.items = [];
+
+  constructor(private http: HttpClient) {
+    this.items = []; 
   }
 
   ngOnInit() {
@@ -29,14 +27,14 @@ export class TaskListComponent implements OnInit {
       text: newItem.value,
       order: this.orderNumber++
     });
-    newItem.value = null;   
+    newItem.value = '';   
     this.updateOrder(); 
   }
 
   addTaskItem(newItem: taskListItems) {
     this.items.push({
       text: newItem.text,
-      order: newItem.order++
+      order: (typeof newItem.order === 'number' ? newItem.order : 0) + 1
     });
     this.updateOrder(); 
   }
@@ -49,8 +47,8 @@ export class TaskListComponent implements OnInit {
     this.updateOrder();
   }
 
-  keyDownFunction(event,taskInput) {
-    if(event.keyCode == 13) {
+  keyDownFunction(event: KeyboardEvent, taskInput: HTMLInputElement) {
+    if(event.code === 'Enter') {
       this.addTask(taskInput);
      }
   }
@@ -84,17 +82,16 @@ export class TaskListComponent implements OnInit {
   }
 
   saveList(){
-    let headers = new Headers();
+    let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    this.http.post('http://localhost:8080/api/tasks', JSON.stringify(this.items), {headers : headers})
-      .subscribe(res => {
+    this.http.post('http://localhost:8080/api/tasks', JSON.stringify(this.items), { headers: headers })
+      .subscribe((res: any) => {
          console.log('inside postmehtod of sub.function', res.json());//only objects
       })
   }
-
-} //end of TaskListComponent
+}
 
 export class taskListItems {
-  text: string;
-  order: number;
+  text?: string;
+  order?: number;
 }
